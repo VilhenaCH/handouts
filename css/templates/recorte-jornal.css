@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Serif:wght@400;700&display=swap');
+
+.nw-clip{
+  --paper:#e9e3d3;
+  --ink:#1c1a15;
+
+  width:100%;
+  max-width:640px;
+  background:var(--paper);
+  padding:28px 30px 34px;
+  position:relative;
+  box-shadow:0 24px 50px rgba(0,0,0,0.5);
+  font-family:'PT Serif', serif;
+  color:var(--ink);
+
+  /* bordas irregulares de corte a tesoura */
+  clip-path: polygon(
+    0% 1.5%, 3% 0%, 97% 0.8%, 100% 2.2%,
+    99% 97%, 96% 100%, 4% 99%, 0% 98%
+  );
+}
+
+.nw-clip::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size:3px 3px;
+  opacity:0.5;
+  pointer-events:none;
+}
+
+.nw-masthead{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  border-bottom:3px double var(--ink);
+  padding-bottom:6px;
+  margin-bottom:14px;
+}
+
+.nw-masthead-name{
+  font-family:'Playfair Display', serif;
+  font-weight:900;
+  font-size:17px;
+  letter-spacing:0.5px;
+}
+
+.nw-dateline{
+  font-size:10px;
+  letter-spacing:0.3px;
+  color:#00000090;
+}
+
+.nw-headline{
+  font-family:'Playfair Display', serif;
+  font-weight:700;
+  font-size:23px;
+  line-height:1.18;
+  margin:0 0 6px;
+  color:var(--ink);
+}
+
+.nw-byline{
+  font-size:11px;
+  font-style:italic;
+  color:var(--accent, #8b1a1a);
+  margin-bottom:14px;
+}
+
+.nw-body{
+  font-size:13px;
+  line-height:1.75;
+  column-count:2;
+  column-gap:22px;
+  column-rule:1px solid rgba(0,0,0,0.15);
+  white-space:pre-line;
+  text-align:justify;
+}
+
+.nw-redacted{
+  background:var(--ink);
+  color:transparent;
+  padding:0 3px;
+  border-radius:1px;
+  user-select:none;
+}
+
+.nw-margin-note{
+  font-family:'Caveat', cursive;
+  font-size:19px;
+  color:var(--accent, #8b1a1a);
+  transform:rotate(-2deg);
+  display:inline-block;
+  margin-left:4px;
+}
+
+@media print{
+  .nw-clip{ box-shadow:none; clip-path:none; }
+}

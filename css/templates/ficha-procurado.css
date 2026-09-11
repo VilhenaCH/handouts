@@ -1,0 +1,122 @@
+.fc-card{
+  --paper:#f1ede1;
+  --ink:#1c1a15;
+
+  width:100%;
+  max-width:460px;
+  background:var(--paper);
+  padding:20px;
+  position:relative;
+  box-shadow:0 20px 44px rgba(0,0,0,0.5);
+  font-family:'Special Elite', monospace;
+  color:var(--ink);
+  border:1px solid rgba(0,0,0,0.15);
+  overflow:hidden;
+}
+
+.fc-photo{
+  width:100%;
+  height:140px;
+  background:
+    repeating-linear-gradient(135deg, #00000012 0 2px, transparent 2px 8px),
+    #cfc9b8;
+  border:1px solid rgba(0,0,0,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#00000055;
+  font-family:'Oswald', sans-serif;
+  font-size:12px;
+  letter-spacing:2px;
+  margin-bottom:14px;
+}
+
+.fc-name{
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:0.5px;
+}
+
+.fc-alias{
+  font-size:12.5px;
+  font-style:italic;
+  color:#00000090;
+  margin-top:2px;
+  margin-bottom:8px;
+}
+
+.fc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:12px 0;
+}
+.fc-grid label, .fc-field label{
+  display:block;
+  font-family:'Oswald', sans-serif;
+  font-size:9px;
+  letter-spacing:0.8px;
+  color:var(--accent, #a32020);
+  margin-bottom:2px;
+}
+.fc-grid span, .fc-field span{
+  font-size:12.5px;
+}
+
+.fc-field{
+  margin-bottom:12px;
+  border-top:1px dotted rgba(0,0,0,0.25);
+  padding-top:8px;
+}
+.fc-field p{
+  margin:0;
+  font-size:12px;
+  line-height:1.7;
+  white-space:pre-line;
+}
+
+.fc-redacted{
+  background:var(--ink);
+  color:transparent;
+  padding:0 3px;
+  border-radius:1px;
+  user-select:none;
+}
+.fc-margin-note{
+  font-family:'Caveat', cursive;
+  font-size:17px;
+  color:var(--accent, #a32020);
+  margin-left:4px;
+  display:inline-block;
+}
+
+.fc-contact{
+  margin-top:8px;
+  font-size:11px;
+  font-family:'Oswald', sans-serif;
+  letter-spacing:0.5px;
+  color:#00000090;
+}
+
+.fc-stamp{
+  position:absolute;
+  top:38%;
+  right:-38px;
+  width:190px;
+  background:var(--accent, #a32020);
+  color:#fff;
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:2px;
+  text-align:center;
+  padding:5px 0;
+  transform:rotate(28deg);
+  opacity:0.9;
+  box-shadow:0 3px 8px rgba(0,0,0,0.3);
+}
+
+@media print{
+  .fc-card{ box-shadow:none; }
+}

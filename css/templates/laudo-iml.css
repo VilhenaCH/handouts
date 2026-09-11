@@ -1,0 +1,127 @@
+.iml-folder{
+  --paper:#eef0ee;
+  --ink:#1a1d1f;
+  --line:#c7cbc6;
+
+  width:100%;
+  max-width:640px;
+  position:relative;
+}
+
+.iml-tab{
+  position:absolute;
+  top:-16px;
+  left:24px;
+  background:var(--accent, #35495c);
+  color:#fff;
+  font-size:11px;
+  letter-spacing:0.5px;
+  padding:5px 14px 4px;
+  font-family:'Oswald', sans-serif;
+  font-weight:500;
+}
+
+.iml-doc{
+  background:var(--paper);
+  box-shadow:0 20px 48px rgba(0,0,0,0.45);
+  font-family:'Courier New', Courier, monospace;
+  color:var(--ink);
+}
+
+.iml-band{
+  background:var(--accent, #35495c);
+  color:#fff;
+  padding:18px 26px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+
+.iml-institution{
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:1px;
+}
+.iml-department{
+  font-family:'Oswald', sans-serif;
+  font-size:10.5px;
+  letter-spacing:1px;
+  opacity:0.82;
+  margin-top:3px;
+}
+.iml-ref{
+  text-align:right;
+  font-size:11px;
+  line-height:1.6;
+  opacity:0.92;
+}
+
+.iml-section, .iml-conclusion{
+  padding:16px 26px;
+  border-bottom:1px solid var(--line);
+}
+
+.iml-conclusion{
+  border-left:3px solid var(--accent, #35495c);
+  border-bottom:none;
+  background:rgba(0,0,0,0.02);
+}
+
+.iml-section h2, .iml-conclusion h2{
+  font-family:'Oswald', sans-serif;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:var(--accent, #35495c);
+  margin:0 0 8px;
+}
+
+.iml-text{
+  font-size:12.5px;
+  line-height:1.85;
+  margin:0;
+  white-space:pre-line;
+}
+
+.iml-redacted{
+  background:#111;
+  color:transparent;
+  padding:0 3px;
+  border-radius:1px;
+  user-select:none;
+}
+
+.iml-margin-note{
+  font-family:'Caveat', cursive;
+  font-size:19px;
+  color:var(--accent, #35495c);
+  margin-left:6px;
+  display:inline-block;
+}
+
+.iml-footer{
+  padding:14px 26px 26px;
+  font-size:10.5px;
+  color:#00000090;
+}
+
+.iml-stamp{
+  position:absolute;
+  bottom:20px;
+  right:24px;
+  border:2px solid var(--accent, #35495c);
+  color:var(--accent, #35495c);
+  font-family:'Oswald', sans-serif;
+  font-size:10.5px;
+  font-weight:700;
+  letter-spacing:2px;
+  padding:6px 12px;
+  transform:rotate(-6deg);
+  opacity:0.75;
+}
+
+@media print{
+  .iml-doc{ box-shadow:none; }
+}
