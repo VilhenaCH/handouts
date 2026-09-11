@@ -1,0 +1,198 @@
+.bo-folder{
+  --manila:#c4a876;
+  --manila-dark:#a88c5c;
+  --ink:#1b1b1b;
+  --paper:#ede6d6;
+  --steel:#35495c;
+
+  width:100%;
+  max-width:640px;
+  background:var(--manila);
+  padding:22px 22px 34px;
+  position:relative;
+  box-shadow:0 30px 60px rgba(0,0,0,0.55);
+  background-image:
+    radial-gradient(ellipse at 15% 20%, rgba(0,0,0,0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 75%, rgba(0,0,0,0.08) 0%, transparent 45%);
+  font-family:'Special Elite', monospace;
+}
+
+.bo-folder::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0; height:10px;
+  background:var(--manila-dark);
+}
+
+.bo-tab{
+  position:absolute;
+  top:-16px;
+  left:24px;
+  background:var(--manila-dark);
+  color:var(--ink);
+  font-size:11px;
+  letter-spacing:0.5px;
+  padding:5px 14px 4px;
+  font-family:'Oswald', sans-serif;
+  font-weight:500;
+}
+
+.bo-doc{
+  background:var(--paper);
+  padding:30px 26px 34px;
+  position:relative;
+  box-shadow:0 8px 18px rgba(0,0,0,0.35), inset 0 0 60px rgba(0,0,0,0.04);
+  transform:rotate(-0.4deg);
+  background-image:
+    radial-gradient(ellipse 180px 120px at 88% 8%, rgba(107,66,38,0.35) 0%, rgba(107,66,38,0.12) 45%, transparent 70%),
+    radial-gradient(ellipse 90px 60px at 10% 92%, rgba(107,66,38,0.22) 0%, transparent 70%);
+}
+
+.bo-doc::before{
+  content:"";
+  position:absolute;
+  top:16px; left:50%;
+  width:5px; height:5px;
+  margin-left:-2px;
+  background:radial-gradient(circle, #0000004d 0%, transparent 70%);
+  border-radius:50%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.15) inset;
+}
+
+.bo-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  border-bottom:2px solid var(--ink);
+  padding-bottom:10px;
+  margin-bottom:18px;
+}
+
+.bo-org{
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  font-size:15px;
+  color:var(--steel);
+  letter-spacing:0.5px;
+}
+.bo-org small{
+  display:block;
+  font-family:'Special Elite', monospace;
+  font-weight:400;
+  font-size:10px;
+  color:var(--ink);
+  letter-spacing:1px;
+  margin-top:2px;
+}
+
+.bo-number{
+  text-align:right;
+  font-size:11px;
+  color:var(--ink);
+  line-height:1.5;
+  white-space:pre-line;
+}
+
+.bo-title{
+  font-family:'Oswald', sans-serif;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:var(--ink);
+  margin:0 0 18px;
+}
+
+.bo-field-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px 16px;
+  margin-bottom:18px;
+}
+.bo-field-grid.full{grid-template-columns:1fr;}
+
+.bo-field{
+  border-bottom:1px dotted #00000055;
+  padding-bottom:6px;
+}
+.bo-field label{
+  display:block;
+  font-family:'Oswald', sans-serif;
+  font-size:9px;
+  letter-spacing:0.8px;
+  color:var(--steel);
+  margin-bottom:3px;
+}
+.bo-field .bo-value{
+  font-size:13px;
+  color:var(--ink);
+}
+
+.bo-narrative{
+  font-size:13px;
+  line-height:1.9;
+  color:var(--ink);
+  white-space:pre-line;
+}
+
+.bo-redacted{
+  background:var(--accent, #a32020);
+  color:transparent;
+  padding:0 3px;
+  border-radius:1px;
+  user-select:none;
+}
+
+.bo-margin-note{
+  font-family:'Caveat', cursive;
+  font-size:22px;
+  color:var(--accent, #a32020);
+  transform:rotate(-3deg);
+  display:inline-block;
+  margin-left:6px;
+}
+
+.bo-stamp{
+  position:absolute;
+  bottom:26px;
+  right:30px;
+  width:126px;
+  height:126px;
+  border:3.5px solid var(--accent, #a32020);
+  border-radius:50%;
+  color:var(--accent, #a32020);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-family:'Oswald', sans-serif;
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:1px;
+  line-height:1.3;
+  transform:rotate(-14deg);
+  opacity:0.82;
+  mix-blend-mode:multiply;
+  white-space:pre-line;
+}
+.bo-stamp::before{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid var(--accent, #a32020);
+  border-radius:50%;
+}
+
+.bo-footer{
+  margin-top:26px;
+  font-size:10px;
+  color:#00000099;
+  display:flex;
+  justify-content:space-between;
+  border-top:1px dotted #00000040;
+  padding-top:8px;
+}
+
+@media print{
+  .bo-folder{ box-shadow:none; }
+  .bo-doc{ box-shadow:none; transform:none; }
+}
