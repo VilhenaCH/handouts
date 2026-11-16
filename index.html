@@ -1,50 +1,77 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arquivo do Caso — criador de handouts</title>
-
-  <link rel="stylesheet" href="css/app.css" />
-
-  <!-- CSS de cada template. Pra adicionar um template novo, inclua o -->
-  <!-- <link> dele aqui embaixo. -->
-  <link rel="stylesheet" href="css/templates/boletim-ocorrencia.css" />
-  <link rel="stylesheet" href="css/templates/laudo-iml.css" />
-  <link rel="stylesheet" href="css/templates/recorte-jornal.css" />
-  <link rel="stylesheet" href="css/templates/ficha-procurado.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark light">
+  <title>Arquivo do Caso — handouts para Ordem Paranormal</title>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="panel">
-      <div class="brand">
-        <strong>Arquivo do Caso</strong>
-        criador de handouts
+  <div id="app">
+    <header class="top">
+      <div class="brand">Arquivo do Caso</div>
+      <div class="seg" role="group" aria-label="Estado de revelação" id="modeSeg"></div>
+      <span class="grow"></span>
+      <button class="btn d-only" type="button" data-act="proj-save">Salvar projeto</button>
+      <button class="btn d-only" type="button" data-act="proj-open">Abrir projeto</button>
+      <button class="btn icon" type="button" data-act="theme" id="themeBtn" aria-label="Alternar tema claro e escuro"></button>
+      <button class="btn primary" type="button" data-act="go" id="topExport">Exportar</button>
+    </header>
+
+    <nav id="models" aria-label="Modelos"></nav>
+
+    <main id="stage" aria-label="Documento">
+      <div class="cap" id="cap"></div>
+      <div class="zoom" role="group" aria-label="Zoom">
+        <button class="btn sm icon" type="button" data-act="zoom-out" aria-label="Diminuir zoom">−</button>
+        <span id="zoomLbl" aria-live="off">100%</span>
+        <button class="btn sm icon" type="button" data-act="zoom-in" aria-label="Aumentar zoom">+</button>
+        <button class="btn sm" type="button" data-act="zoom-fit">Ajustar</button>
       </div>
-      <ul class="template-list" id="template-list"></ul>
+      <div id="vp"><div id="scaler"><div id="host"></div></div></div>
+    </main>
+
+    <aside id="insp" aria-label="Inspetor">
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div class="panel" id="panel"></div>
+      <div class="xblock" id="xblock"></div>
     </aside>
 
-    <section class="panel" id="field-panel"></section>
-
-    <main class="preview-column">
-      <div class="toolbar">
-        <button class="export-btn" id="export-btn">Exportar PDF</button>
-      </div>
-      <div id="doc-preview"></div>
-    </main>
+    <nav class="bar" aria-label="Painéis" id="bar"></nav>
   </div>
 
-  <!-- utilitários compartilhados, carregados antes dos templates -->
+  <input type="file" id="fileSlot" accept="image/*" hidden>
+  <input type="file" id="fileAtt" accept="image/*" multiple hidden>
+  <input type="file" id="fileProj" accept="application/json,.json" hidden>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="vendor/modern-screenshot.js"></script>
+  <script src="vendor/jspdf.umd.min.js"></script>
   <script src="js/utils.js"></script>
 
-  <!-- JS de cada template. Pra adicionar um template novo, inclua o -->
-  <!-- <script> dele aqui, sempre depois de utils.js e antes de app.js. -->
+  <!-- Templates: cada arquivo se registra em window.TEMPLATES (ordem = ordem na lista). -->
   <script src="js/templates/boletim-ocorrencia.js"></script>
-  <script src="js/templates/laudo-iml.js"></script>
-  <script src="js/templates/recorte-jornal.js"></script>
+  <script src="js/templates/transcricao-interrogatorio.js"></script>
   <script src="js/templates/ficha-procurado.js"></script>
+  <script src="js/templates/laudo-iml.js"></script>
+  <script src="js/templates/prontuario-medico.js"></script>
+  <script src="js/templates/recorte-jornal.js"></script>
+  <script src="js/templates/memorando-confidencial.js"></script>
+  <script src="js/templates/relatorio-paranormal.js"></script>
+  <script src="js/templates/ritual-grimorio.js"></script>
+  <script src="js/templates/carta.js"></script>
+  <script src="js/templates/diario.js"></script>
+  <script src="js/templates/papel-rasgado.js"></script>
+  <script src="js/templates/print-conversa.js"></script>
+  <script src="js/templates/frame-cftv.js"></script>
+  <script src="js/templates/polaroid.js"></script>
+  <script src="js/templates/saco-evidencia.js"></script>
+  <script src="js/templates/cupom-fiscal.js"></script>
 
-  <!-- lógica do app, sempre por último -->
+  <script src="js/store.js"></script>
+  <script src="js/exporter.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
